@@ -24,6 +24,8 @@ router.get('/events', (req, res) => {
         updatedResult.push(currentValue)
       }
     })
+    if (updatedResult.length <= 0) {
+      return res.status(404).json({ message: "Sorry all events are finnished." })}
     res.json(updatedResult)
   })
   .catch(err => {
